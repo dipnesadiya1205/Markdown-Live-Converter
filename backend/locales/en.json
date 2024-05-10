@@ -1,0 +1,14 @@
+{
+	"SERVICE_UNAVAILABLE": "Service is unavailble",
+	"SERVER_ERROR_MESSAGE": "Internal Server Error",
+	"CONVERT": {
+		"VALIDATIONS": {
+			"markdownText": {
+				"required": "markdownText is required",
+				"type": "markdownText should be valid string",
+				"valid_length %s %s": "markdownText length should be between %s and %s"
+			}
+		},
+		"SUCCESS": "Converted Successfully"
+	}
+}

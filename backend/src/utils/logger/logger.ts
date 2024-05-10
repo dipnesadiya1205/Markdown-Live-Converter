@@ -1,12 +1,12 @@
-import { existsSync, mkdirSync } from "fs";
-import { utc } from "moment";
-import { Logger, transports } from "winston";
+import { existsSync, mkdirSync } from 'fs';
+import { utc } from 'moment';
+import { Logger, transports } from 'winston';
 
 class Logging {
   public logger: any;
 
   // define the logs level
-  private logLevel = "silly";
+  private logLevel = 'silly';
 
   constructor() {
     this.logger = new Logger({
@@ -23,7 +23,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.error(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.error(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public warn(
@@ -34,7 +34,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.warn(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.warn(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public info(
@@ -45,7 +45,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.info(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.info(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public verbose(
@@ -56,7 +56,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.verbose(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.verbose(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public debug(
@@ -67,7 +67,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.debug(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.debug(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public silly(
@@ -78,7 +78,7 @@ class Logging {
     data: any = {}
   ) {
     this.setLabel(fileName, method);
-    this.logger.silly(`${uuid} - ${msg}`, data ? data : "", "");
+    this.logger.silly(`${uuid} - ${msg}`, data ? data : '', '');
   }
 
   public setFileLevel(level: string) {
@@ -91,24 +91,24 @@ class Logging {
 
   public setLabel(fileName: string, method: string | null = null) {
     let label = this.getLabel(fileName);
-    label += method ? ` ~ ${method}` : "";
-    this.logger.transports.console["label"] = label;
-    this.logger.transports.file["label"] = label;
+    label += method ? ` ~ ${method}` : '';
+    this.logger.transports.console['label'] = label;
+    this.logger.transports.file['label'] = label;
   }
 
   // return the file name from absolute path for label in logs
   private getLabel = (fileName: string) => {
-    const parts = fileName.split("/");
-    return parts[parts.length - 2] + "/" + parts.pop();
+    const parts = fileName.split('/');
+    return parts[parts.length - 2] + '/' + parts.pop();
   };
 
   // return the file path for log file
   private filePath = () => {
-    const dir = __dirname + "/../../logs";
+    const dir = __dirname + '/../../logs';
     if (!existsSync(dir)) {
       mkdirSync(dir);
     }
-    return dir + `/logs_${utc().format("YYYY-MM-DD")}_.log`;
+    return dir + `/logs_${utc().format('YYYY-MM-DD')}_.log`;
   };
 
   // set file transport object
@@ -122,7 +122,7 @@ class Logging {
       label: null, // Display file name
       json: false, // write error in json object or plain text
       timestamp: true,
-      depth: "",
+      depth: '',
       colorize: false,
       // silent: true    // Uncomment to turn off logging
     };

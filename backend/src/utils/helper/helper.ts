@@ -1,5 +1,5 @@
-import { Response } from "express";
-import STATUS_CODES from "http-status-codes";
+import { Response } from 'express';
+import STATUS_CODES from 'http-status-codes';
 
 /**
  * @description Create Response
@@ -16,7 +16,7 @@ export const createResponse = (
   payload: object | null = {},
   pager: object | null = {}
 ) => {
-  const resPager = typeof pager !== "undefined" ? pager : {};
+  const resPager = typeof pager !== 'undefined' ? pager : {};
 
   return res.status(status).json({
     status,

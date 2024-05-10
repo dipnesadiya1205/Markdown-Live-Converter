@@ -6,8 +6,8 @@ export const isEmpty = (value: any) => {
   if (
     value === undefined ||
     value === null ||
-    (typeof value === "object" && Object.keys(value).length === 0) ||
-    (typeof value === "string" && value.trim().length === 0)
+    (typeof value === 'object' && Object.keys(value).length === 0) ||
+    (typeof value === 'string' && value.trim().length === 0)
   ) {
     return true;
   } else {
@@ -21,7 +21,7 @@ export const isEmpty = (value: any) => {
  * @param {String} regEx
  */
 export const customRegex = (str: string, regEx: RegExp) => {
-  if (typeof str !== "string") {
+  if (typeof str !== 'string') {
     return false;
   } else if (!regEx.test(str)) {
     return false;
@@ -35,7 +35,7 @@ export const customRegex = (str: string, regEx: RegExp) => {
  * @param {String} value
  */
 export const isString = (value: string | object) => {
-  return typeof value === "string" || value instanceof String;
+  return typeof value === 'string' || value instanceof String;
 };
 
 /**
